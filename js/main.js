@@ -15,7 +15,6 @@
     var viewport = root.querySelector('.hs-viewport');
     var track = root.querySelector('.hs-track');
     var dotsWrap = root.querySelector('.hs-dots');
-    var toggle = root.querySelector('.hs-toggle');
     var originals = Array.prototype.slice.call(track.children);
     var n = originals.length;
     var CLONES = Math.min(2, n);
@@ -180,28 +179,15 @@
     }, true);
 
     // 自動再生
-    var timer = null, hover = false, userPaused = reduceMotion;
+    // 自動再生は常にON。手でスライドした後もそこから自動再生を続ける
+    var timer = null;
     function start() {
       stop();
-      if (userPaused || hover || document.hidden) return;
+      if (document.hidden) return;
       timer = window.setInterval(next, INTERVAL);
     }
     function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
     function restart() { start(); }
-
-    function setPaused(p) {
-      userPaused = p;
-      toggle.setAttribute('aria-pressed', p ? 'true' : 'false');
-      toggle.setAttribute('aria-label', p ? '自動再生を開始' : '自動再生を停止');
-      start();
-    }
-    toggle.addEventListener('click', function () { setPaused(!userPaused); });
-
-    // マウス操作の端末だけ、ホバー中は自動再生を止める（スマホでタップ後に止まったままにならないように）
-    if (window.matchMedia('(hover: hover)').matches) {
-      root.addEventListener('mouseenter', function () { hover = true; stop(); });
-      root.addEventListener('mouseleave', function () { hover = false; start(); });
-    }
     document.addEventListener('visibilitychange', start);
 
     var resizeTimer;
@@ -213,7 +199,7 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { render(false); });
 
     render(false);
-    setPaused(userPaused);
+    start();
   }
 
   /* ---------------- タブ ---------------- */

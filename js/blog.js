@@ -96,8 +96,7 @@
       '<figure class="post-fig"><img src="' + esc(p.image) + '" alt="' + esc(p.imageAlt || '') + '"></figure>' +
       result +
       '<div class="post-body">' + paragraphs(p.body) + '</div>' +
-      gallery +
-      (p.excerptOnly ? '<p class="post-note">※ サンプル表示：公式Facebookの投稿の冒頭部分を掲載しています。</p>' : '');
+      gallery;
 
     var nav = document.querySelector('[data-blog-nav]');
     if (nav) {

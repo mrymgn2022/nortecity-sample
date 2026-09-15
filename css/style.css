@@ -130,11 +130,6 @@ html.drawer-open{overflow:hidden}
 .hs-dots button{width:36px;height:24px;padding:0;border:0;background:none;cursor:pointer;position:relative}
 .hs-dots button::before{content:"";position:absolute;left:4px;right:4px;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:#C8D2E6;transition:background .3s}
 .hs-dots button[aria-current="true"]::before{background:var(--orange)}
-.hs-toggle{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--blue-dark);display:grid;place-items:center;cursor:pointer;padding:0}
-.hs-toggle svg{width:12px;height:12px}
-.hs-toggle .i-play{display:none}
-.hs-toggle[aria-pressed="true"] .i-play{display:block}
-.hs-toggle[aria-pressed="true"] .i-pause{display:none}
 
 /* 画像差し替えまでの仮バナー */
 .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:clamp(18px,4.2vw,52px);color:#fff;overflow:hidden;isolation:isolate}
