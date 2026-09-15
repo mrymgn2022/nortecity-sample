@@ -318,7 +318,12 @@ html.drawer-open{overflow:hidden}
   .float-sns svg{width:13px;height:13px}
   .hero{padding:16px 0 10px}
   .hs-slide{border-radius:10px}
-  .hs-arrow{display:none} /* スマホはスワイプ＋ドットで操作 */
+  /* スマホ：順大スマホ版と同じく、画像の左右端に細い白の「＜ ＞」 */
+  .hs-arrow{width:30px;height:48px;border-radius:0;background:none;box-shadow:none;color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.65))}
+  .hs-arrow svg{width:30px;height:30px}
+  .hs-arrow:active{opacity:.6}
+  .hs-prev{left:calc(50% - var(--hs-w) / 2 + 2px)}
+  .hs-next{right:calc(50% - var(--hs-w) / 2 + 2px)}
   .ph{padding:16px 18px}
   .ph-note{top:8px;right:8px;font-size:9px;padding:2px 8px}
   .ph::before{display:none}
