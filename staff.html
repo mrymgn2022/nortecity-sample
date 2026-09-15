@@ -23,8 +23,8 @@
 .staff-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
 .staff-photo{aspect-ratio:1/1;overflow:hidden;background:var(--blue-soft)}
 .staff-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.staff-initial{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 100%)}
-.staff-initial span{width:110px;height:110px;border-radius:50%;background:#fff;color:var(--blue-dark);display:grid;place-items:center;font-family:var(--en);font-size:46px;font-weight:700}
+.staff-initial{aspect-ratio:1/1;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:linear-gradient(180deg,#EEF2FA 0%,#DCE5F4 100%)}
+.staff-initial svg{width:76%;height:auto;color:#A9BBDC;margin-bottom:-2%}
 .staff-body{flex:1;display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px}
 .staff-role{align-self:flex-start;padding:2px 12px;border-radius:4px;background:var(--blue);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.04em}
 .staff-role--special{background:var(--orange-dark)}
@@ -47,7 +47,6 @@
   .staff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .staff-body{padding:12px 12px 14px}
   .staff-name{font-size:16px}
-  .staff-initial span{width:84px;height:84px;font-size:36px}
 }
 </style>
 </head>
@@ -77,6 +76,7 @@
       <li><a href="team.html">チーム紹介<small>TEAM</small></a></li>
       <li><a href="staff.html" aria-current="page">スタッフ<small>STAFF</small></a></li>
       <li><a href="schedule.html">日程・結果<small>SCHEDULE</small></a></li>
+      <li><a href="blog.html">ブログ<small>BLOG</small></a></li>
       <li><a href="sponsors.html">スポンサー<small>SPONSOR</small></a></li>
     </ul>
   </nav>
@@ -111,7 +111,7 @@
 
         <!-- 代表 吉浦 宏 -->
         <article class="staff-card">
-          <div class="staff-initial" role="img" aria-label="吉浦 宏（写真準備中）"><span>Y</span></div>
+          <div class="staff-initial" role="img" aria-label="吉浦 宏（写真準備中）"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="36" r="20" fill="currentColor"/><path d="M8 100c0-26 19-42 42-42s42 16 42 42z" fill="currentColor"/></svg></div>
           <div class="staff-body">
             <span class="staff-role">代表</span>
             <h3 class="staff-name">吉浦 宏</h3>
@@ -312,6 +312,7 @@
       <a href="team.html">チーム紹介</a>
       <a href="staff.html">スタッフ</a>
       <a href="schedule.html">日程・結果</a>
+      <a href="blog.html">ブログ</a>
       <a href="sponsors.html">スポンサー</a>
     </nav>
     <div class="copy-line">

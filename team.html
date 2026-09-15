@@ -49,6 +49,8 @@
 .env-body h3{margin:0 0 6px;font-size:16px;font-weight:900;color:var(--blue-dark)}
 .env-body h3 small{margin-left:8px;font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--orange-dark)}
 .env-body p{font-size:13.5px;line-height:1.9;color:var(--ink)}
+.env-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#fff}
+.env-card .env-photos img{aspect-ratio:8/9;object-fit:cover}
 
 /* ---- 進路サポート ---- */
 .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -74,7 +76,6 @@
 .map-link{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--blue);border-radius:999px;font-size:12.5px;font-weight:700;color:var(--blue);transition:background .2s,color .2s}
 .map-link:hover{background:var(--blue);color:#fff}
 .map-link svg{width:14px;height:14px}
-.place-note{margin-top:12px;font-size:13px;color:var(--mute)}
 
 /* ---- TJVスクール ---- */
 .school-box{background:linear-gradient(120deg,var(--blue-dark) 0%,var(--blue) 100%);border-radius:var(--radius);color:#fff;padding:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
@@ -84,16 +85,6 @@
 .school-points span{padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);font-size:12.5px;font-weight:700}
 .school-btn{display:inline-block;padding:13px 28px;border-radius:999px;background:var(--orange);color:#fff;font-size:14.5px;font-weight:700;white-space:nowrap;transition:background .2s}
 .school-btn:hover{background:var(--orange-dark)}
-
-/* ---- よくある質問 ---- */
-.faq details{background:#fff;border:1px solid var(--line);border-radius:8px}
-.faq details + details{margin-top:10px}
-.faq summary{display:flex;align-items:baseline;gap:12px;padding:15px 18px;font-size:15px;font-weight:700;cursor:pointer;list-style:none}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{background:var(--bg-soft)}
-.faq .q{flex:none;font-family:var(--en);font-weight:700;font-size:16px;color:var(--orange-dark)}
-.faq .a-body{display:flex;gap:12px;margin:0 18px;padding:13px 0 16px;border-top:1px dashed var(--line);font-size:14px;line-height:1.9}
-.faq .a{flex:none;font-family:var(--en);font-weight:700;font-size:16px;color:var(--blue)}
 
 /* ---- お問い合わせ ---- */
 .contact-box{background:#fff;border:2px solid var(--blue);border-radius:var(--radius);overflow:hidden}
@@ -146,6 +137,7 @@
       <li><a href="team.html" aria-current="page">チーム紹介<small>TEAM</small></a></li>
       <li><a href="staff.html">スタッフ<small>STAFF</small></a></li>
       <li><a href="schedule.html">日程・結果<small>SCHEDULE</small></a></li>
+      <li><a href="blog.html">ブログ<small>BLOG</small></a></li>
       <li><a href="sponsors.html">スポンサー<small>SPONSOR</small></a></li>
     </ul>
   </nav>
@@ -259,13 +251,10 @@
           </div>
         </article>
         <article class="env-card">
-          <div class="env-body">
-            <h3>プロテイン支給<small>NUTRITION</small></h3>
-            <p>トレーニング後30分以内の栄養補給としてプロテインを配布。スポンサー支給のため、費用はかかりません。</p>
+          <div class="env-photos">
+            <img src="assets/img/photo/bus1.jpg" alt="ノールチシティのチームバス（正面）">
+            <img src="assets/img/photo/bus2.jpg" alt="ノールチシティのチームバス（側面）">
           </div>
-        </article>
-        <article class="env-card">
-          <img src="assets/img/photo/bus1.jpg" alt="ノールチシティのチームバス">
           <div class="env-body">
             <h3>チームバス<small>TEAM BUS</small></h3>
             <p>チームバスを所有（2022年6月に2号車を導入）。試合・遠征はバスで移動します。</p>
@@ -342,7 +331,6 @@
           <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8C%97%E5%8C%BA%E6%B5%AE%E9%96%934-29-30" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Googleマップで見る</a>
         </article>
       </div>
-      <p class="place-note">※ 人工芝メインのため、天候に左右されずに活動できます。</p>
     </section>
 
     <!-- ⑨ TJVスクール -->
@@ -361,35 +349,6 @@
           </div>
         </div>
         <a class="school-btn" href="https://tmkitaku.jimdofree.com/" target="_blank" rel="noopener">スクールの詳細を見る</a>
-      </div>
-    </section>
-
-    <!-- ⑩ よくある質問 -->
-    <section class="block" aria-labelledby="faq-title">
-      <div class="block-head">
-        <h2 class="block-title" id="faq-title">よくある質問<small>FAQ</small></h2>
-      </div>
-      <div class="faq">
-        <details>
-          <summary><span class="q">Q.</span>雨天のときの練習はどうなりますか？</summary>
-          <div class="a-body"><span class="a">A.</span><p>人工芝メインのため、雨天でも練習できます。寒い日や大雨のときは施設を借りて映像分析を行います。</p></div>
-        </details>
-        <details>
-          <summary><span class="q">Q.</span>Aチーム・Bチームの分け方は？</summary>
-          <div class="a-body"><span class="a">A.</span><p>固定のA・B分けや、別会場・別々だけの練習はしません。大会には調子の良い選手が出場します。</p></div>
-        </details>
-        <details>
-          <summary><span class="q">Q.</span>進路のサポートはありますか？</summary>
-          <div class="a-body"><span class="a">A.</span><p>必ず全員と面談を行い、最後まで斡旋・情報共有をします。希望校や選手に合うチームへの推薦も行います。</p></div>
-        </details>
-        <details>
-          <summary><span class="q">Q.</span>合宿はありますか？</summary>
-          <div class="a-body"><span class="a">A.</span><p>夏2回・冬1回を予定しています。</p></div>
-        </details>
-        <details>
-          <summary><span class="q">Q.</span>プロテインの料金はかかりますか？</summary>
-          <div class="a-body"><span class="a">A.</span><p>チームからの支給のため、費用はかかりません。</p></div>
-        </details>
       </div>
     </section>
 
@@ -423,6 +382,7 @@
       <a href="team.html">チーム紹介</a>
       <a href="staff.html">スタッフ</a>
       <a href="schedule.html">日程・結果</a>
+      <a href="blog.html">ブログ</a>
       <a href="sponsors.html">スポンサー</a>
     </nav>
     <div class="copy-line">
