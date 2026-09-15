@@ -105,26 +105,52 @@
     // スワイプ／ドラッグ
     var startX = 0, startY = 0, dx = 0, pointerDown = false, dragging = false, justDragged = false, pid = null;
 
-    viewport.addEventListener('pointerdown', function (e) {
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
+    function beginDrag(x, y) {
       pointerDown = true; dragging = false; justDragged = false;
-      startX = e.clientX; startY = e.clientY; dx = 0; pid = e.pointerId;
-    });
+      startX = x; startY = y; dx = 0;
+    }
 
-    viewport.addEventListener('pointermove', function (e) {
-      if (!pointerDown || e.pointerId !== pid) return;
-      dx = e.clientX - startX;
-      var dy = e.clientY - startY;
+    // 戻り値 true = 横スワイプ中（スマホでは縦スクロールを止める）
+    function moveDrag(x, y) {
+      if (!pointerDown) return false;
+      dx = x - startX;
+      var dy = y - startY;
       if (!dragging) {
-        if (Math.abs(dx) < 6) return;
-        if (Math.abs(dy) > Math.abs(dx)) { pointerDown = false; return; } // 縦スクロールを優先
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return false;
+        if (Math.abs(dy) > Math.abs(dx)) { pointerDown = false; return false; } // 縦スクロールを優先
         dragging = true;
         stop();
         if (pos >= n + CLONES || pos < CLONES) normalize();
         track.classList.add('is-dragging');
-        try { viewport.setPointerCapture(pid); } catch (err) {}
       }
       track.style.transform = 'translate3d(' + offsetFor(pos, dx) + 'px,0,0)';
+      return true;
+    }
+
+    // スマホ：タッチイベント
+    viewport.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) return;
+      beginDrag(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+    viewport.addEventListener('touchmove', function (e) {
+      if (e.touches.length !== 1) return;
+      if (moveDrag(e.touches[0].clientX, e.touches[0].clientY) && e.cancelable) e.preventDefault();
+    }, { passive: false });
+    viewport.addEventListener('touchend', function () { endDrag(); });
+    viewport.addEventListener('touchcancel', function () { endDrag(); });
+
+    // PC：マウスでドラッグ
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch' || e.button !== 0) return;
+      pid = e.pointerId;
+      beginDrag(e.clientX, e.clientY);
+    });
+    viewport.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch' || e.pointerId !== pid) return;
+      var wasDragging = dragging;
+      if (moveDrag(e.clientX, e.clientY) && !wasDragging) {
+        try { viewport.setPointerCapture(pid); } catch (err) {}
+      }
     });
 
     function endDrag() {
@@ -140,9 +166,9 @@
       else render(true);
       restart();
     }
-    viewport.addEventListener('pointerup', endDrag);
-    viewport.addEventListener('pointercancel', endDrag);
-    viewport.addEventListener('lostpointercapture', endDrag);
+    viewport.addEventListener('pointerup', function (e) { if (e.pointerType !== 'touch') endDrag(); });
+    viewport.addEventListener('pointercancel', function (e) { if (e.pointerType !== 'touch') endDrag(); });
+    viewport.addEventListener('lostpointercapture', function (e) { if (e.pointerType !== 'touch') endDrag(); });
     track.addEventListener('dragstart', function (e) { e.preventDefault(); });
 
     // ドラッグ直後のクリックは無効化。左右のスライドをクリックしたらそのスライドへ移動
@@ -171,8 +197,11 @@
     }
     toggle.addEventListener('click', function () { setPaused(!userPaused); });
 
-    root.addEventListener('mouseenter', function () { hover = true; stop(); });
-    root.addEventListener('mouseleave', function () { hover = false; start(); });
+    // マウス操作の端末だけ、ホバー中は自動再生を止める（スマホでタップ後に止まったままにならないように）
+    if (window.matchMedia('(hover: hover)').matches) {
+      root.addEventListener('mouseenter', function () { hover = true; stop(); });
+      root.addEventListener('mouseleave', function () { hover = false; start(); });
+    }
     document.addEventListener('visibilitychange', start);
 
     var resizeTimer;
@@ -213,4 +242,77 @@
       });
     });
   });
+
+  /* ---------------- 外部サイトから戻ったとき、タップしたボタンの色が残らないように ---------------- */
+  window.addEventListener('pageshow', function () {
+    var el = document.activeElement;
+    if (el && el !== document.body && typeof el.blur === 'function') el.blur();
+  });
+
+  /* ---------------- スマホ用メニュー（ハンバーガー） ---------------- */
+  (function initDrawer() {
+    var btn = document.querySelector('.menu-btn');
+    var gnav = document.querySelector('.gnav');
+    if (!btn || !gnav) return;
+
+    var items = Array.prototype.slice.call(gnav.querySelectorAll('a')).map(function (a) {
+      var small = a.querySelector('small');
+      return {
+        href: a.getAttribute('href'),
+        ja: a.firstChild.textContent.trim(),
+        en: small ? small.textContent : '',
+        current: a.getAttribute('aria-current') === 'page'
+      };
+    });
+    items.push({ href: 'contact.html', ja: 'お問い合わせ', en: 'CONTACT', current: /contact\.html$/.test(location.pathname) });
+
+    var chev = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var sns = document.querySelector('.float-sns');
+
+    var drawer = document.createElement('div');
+    drawer.className = 'drawer';
+    drawer.id = 'drawer';
+    drawer.setAttribute('role', 'dialog');
+    drawer.setAttribute('aria-modal', 'true');
+    drawer.setAttribute('aria-label', 'メニュー');
+    drawer.setAttribute('inert', '');
+    drawer.innerHTML =
+      '<div class="drawer-backdrop" data-close></div>' +
+      '<div class="drawer-panel">' +
+        '<div class="drawer-top"><span class="drawer-en">MENU</span>' +
+          '<button class="drawer-close" type="button" aria-label="メニューを閉じる" data-close><span></span><span></span></button></div>' +
+        '<ul class="drawer-list">' + items.map(function (it, i) {
+          return '<li style="--i:' + i + '"><a href="' + it.href + '"' +
+            (it.current ? ' aria-current="page"' : '') +
+            (it.href === 'contact.html' ? ' class="is-contact"' : '') + '>' +
+            '<span class="dj">' + it.ja + '</span><span class="de">' + it.en + '</span>' + chev + '</a></li>';
+        }).join('') + '</ul>' +
+        (sns ? '<div class="drawer-sns">' + sns.innerHTML + '</div>' : '') +
+      '</div>';
+    document.body.appendChild(drawer);
+
+    function open() {
+      drawer.removeAttribute('inert');
+      drawer.classList.add('is-open');
+      document.documentElement.classList.add('drawer-open');
+      btn.setAttribute('aria-expanded', 'true');
+      window.setTimeout(function () { drawer.querySelector('.drawer-close').focus(); }, 60);
+    }
+    function close() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('inert', '');
+      document.documentElement.classList.remove('drawer-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.focus();
+    }
+
+    btn.addEventListener('click', open);
+    drawer.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+    });
+    var wide = window.matchMedia('(min-width: 769px)');
+    var onWide = function (m) { if (m.matches && drawer.classList.contains('is-open')) close(); };
+    if (wide.addEventListener) wide.addEventListener('change', onWide); else wide.addListener(onWide);
+  })();
 })();

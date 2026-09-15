@@ -74,7 +74,7 @@
 .place-card h3{margin:0;padding-left:10px;border-left:4px solid var(--orange);font-size:16px;font-weight:900;color:var(--blue-dark)}
 .place-card address{font-style:normal;font-size:13.5px;line-height:1.8;color:var(--ink)}
 .map-link{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--blue);border-radius:999px;font-size:12.5px;font-weight:700;color:var(--blue);transition:background .2s,color .2s}
-.map-link:hover{background:var(--blue);color:#fff}
+@media (hover:hover){.map-link:hover{background:var(--blue);color:#fff}}
 .map-link svg{width:14px;height:14px}
 
 /* ---- TJVスクール ---- */
@@ -84,7 +84,7 @@
 .school-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .school-points span{padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);font-size:12.5px;font-weight:700}
 .school-btn{display:inline-block;padding:13px 28px;border-radius:999px;background:var(--orange);color:#fff;font-size:14.5px;font-weight:700;white-space:nowrap;transition:background .2s}
-.school-btn:hover{background:var(--orange-dark)}
+@media (hover:hover){.school-btn:hover{background:var(--orange-dark)}}
 
 /* ---- お問い合わせ ---- */
 .contact-box{background:#fff;border:2px solid var(--blue);border-radius:var(--radius);overflow:hidden}
@@ -93,9 +93,9 @@
 .contact-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:6px 0;font-size:15px}
 .contact-list .lbl{flex:none;width:74px;font-size:12px;font-weight:700;color:var(--mute)}
 .contact-list a{font-weight:700;color:var(--blue);text-decoration:underline;text-underline-offset:3px;word-break:break-all}
-.contact-list a:hover{color:var(--orange-dark)}
+@media (hover:hover){.contact-list a:hover{color:var(--orange-dark)}}
 .form-btn{display:inline-block;padding:14px 30px;border-radius:999px;background:var(--orange);color:#fff;font-size:15px;font-weight:700;white-space:nowrap;transition:background .2s}
-.form-btn:hover{background:var(--orange-dark)}
+@media (hover:hover){.form-btn:hover{background:var(--orange-dark)}}
 
 @media (max-width:768px){
   .page-hero h1{font-size:22px}
@@ -127,6 +127,7 @@
     </a>
     <div class="header-util">
       <a class="top-link" href="https://forms.gle/h69wxchyuRCd8B8E6" target="_blank" rel="noopener">&raquo; お申込み・お問い合わせ</a>
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     </div>
   </div>
 
