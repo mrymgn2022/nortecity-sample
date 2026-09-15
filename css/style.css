@@ -221,6 +221,23 @@ html.drawer-open{overflow:hidden}
 .chip--away{background:var(--blue-soft);color:var(--blue);border:1px solid #B9C9E8}
 .note{margin-top:10px;font-size:12px;color:var(--mute)}
 
+/* 試合の状態（中止・延期） */
+.m-status{display:inline-block;margin-top:8px;padding:3px 12px;border-radius:4px;font-size:12px;font-weight:700;line-height:1.4;color:#fff}
+.m-status--cancel{background:#C62828}
+.m-status--postpone{background:#6B7280}
+.sched-table .rd{display:block;font-size:11px;font-weight:500;color:var(--mute)}
+
+/* 緊急告知の帯（スプレッドシートで表示ON） */
+.site-alert{color:#fff}
+.site-alert--warn{background:#C62828}
+.site-alert--info{background:var(--blue-dark)}
+.site-alert + .site-alert{border-top:1px solid rgba(255,255,255,.2)}
+.site-alert .container{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;padding-block:10px}
+.sa-tag{flex:none;padding:2px 10px;border-radius:4px;background:#fff;color:#C62828;font-size:12px;font-weight:900}
+.site-alert--info .sa-tag{color:var(--blue-dark)}
+.sa-text{font-size:14px;font-weight:700;line-height:1.6}
+.sa-link{margin-left:auto;font-size:13px;font-weight:700;text-decoration:underline;white-space:nowrap}
+
 /* お知らせ */
 .news{border-top:1px solid var(--line)}
 .news a{display:grid;grid-template-columns:132px 84px minmax(0,1fr) 18px;align-items:center;gap:16px;padding:17px 8px;border-bottom:1px solid var(--line);transition:background .2s}
