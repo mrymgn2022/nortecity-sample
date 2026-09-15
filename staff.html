@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スタッフ｜ノールチシティ ジュニアユースサッカークラブ</title>
+<meta name="description" content="ノールチシティ ジュニアユースのコーチ・スタッフ紹介。監督・コーチ・アドバイザーの経歴を掲載しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ---- ページタイトル帯 ---- */
+.page-hero{background:linear-gradient(120deg,var(--blue-dark) 0%,var(--blue) 100%);color:#fff}
+.page-hero .container{min-height:120px;display:flex;flex-direction:column;justify-content:center;gap:2px;padding-block:22px}
+.page-hero h1{margin:0;font-size:26px;font-weight:900;letter-spacing:.06em;line-height:1.3}
+.page-hero .en{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.3em;color:#FFB07A}
+.page-main{padding:44px 0 72px}
+
+/* ---- スタッフカード ---- */
+.staff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.staff-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.staff-photo{aspect-ratio:1/1;overflow:hidden;background:var(--blue-soft)}
+.staff-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.staff-initial{aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 100%)}
+.staff-initial span{width:110px;height:110px;border-radius:50%;background:#fff;color:var(--blue-dark);display:grid;place-items:center;font-family:var(--en);font-size:46px;font-weight:700}
+.staff-body{flex:1;display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px}
+.staff-role{align-self:flex-start;padding:2px 12px;border-radius:4px;background:var(--blue);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.04em}
+.staff-role--special{background:var(--orange-dark)}
+.staff-name{margin:0;font-size:19px;font-weight:900;color:var(--blue-dark);letter-spacing:.06em}
+.career h3{margin:6px 0 2px;font-size:11.5px;font-weight:700;color:var(--orange-dark);letter-spacing:.08em}
+.career ul{padding:0}
+.career li{position:relative;padding:2px 0 2px 14px;font-size:12.5px;line-height:1.7;color:var(--ink)}
+.career li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.staff-card details{margin-top:auto}
+.staff-card details summary{display:inline-flex;align-items:center;gap:6px;padding:6px 0 0;font-size:13px;font-weight:700;color:var(--blue);cursor:pointer;list-style:none}
+.staff-card details summary::-webkit-details-marker{display:none}
+.staff-card details summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.staff-card details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.staff-card details summary:hover{color:var(--orange-dark)}
+.staff-card details .career{padding-top:6px}
+.staff-note{margin-top:22px;font-size:12px;color:var(--mute)}
+@media (max-width:768px){
+  .page-hero h1{font-size:22px}
+  .page-main{padding:32px 0 56px}
+  .staff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .staff-body{padding:12px 12px 14px}
+  .staff-name{font-size:16px}
+  .staff-initial span{width:84px;height:84px;font-size:36px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へスキップ</a>
+
+<!-- ============ ヘッダー ============ -->
+<header class="site-header">
+  <div class="container header-top">
+    <a class="brand" href="index.html">
+      <img src="assets/img/emblem.png" width="36" height="35" alt="">
+      <span class="brand-text">
+        <span class="brand-en">NORTECITY JUNIOR YOUTH</span>
+        <span class="brand-ja">ノールチシティ</span>
+      </span>
+    </a>
+    <div class="header-util">
+      <a class="top-link" href="https://forms.gle/h69wxchyuRCd8B8E6" target="_blank" rel="noopener">&raquo; お申込み・お問い合わせ</a>
+    </div>
+  </div>
+
+  <nav class="gnav" aria-label="メインメニュー">
+    <ul class="container">
+      <li><a href="index.html">ホーム<small>HOME</small></a></li>
+      <li><a href="news.html">お知らせ<small>NEWS</small></a></li>
+      <li><a href="team.html">チーム紹介<small>TEAM</small></a></li>
+      <li><a href="staff.html" aria-current="page">スタッフ<small>STAFF</small></a></li>
+      <li><a href="schedule.html">日程・結果<small>SCHEDULE</small></a></li>
+      <li><a href="sponsors.html">スポンサー<small>SPONSOR</small></a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 画面端の固定SNSボタン -->
+<nav class="float-sns" aria-label="公式SNS">
+  <a href="https://x.com/nortecity" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  <a href="https://www.instagram.com/nortecity_official/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a>
+  <a href="https://www.facebook.com/nortecitytokyo/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+  <a href="https://www.youtube.com/channel/UCBgRU-13rFsEU_Lkqz926OQ" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.2V8.8L15.6 12z"/></svg></a>
+</nav>
+
+<!-- ============ ページタイトル帯 ============ -->
+<div class="page-hero">
+  <div class="container">
+    <p class="en">STAFF</p>
+    <h1>スタッフ</h1>
+  </div>
+</div>
+
+<!-- ============ メイン ============ -->
+<main id="main" class="page-main">
+  <div class="container">
+
+    <section class="block" aria-labelledby="staff-title">
+      <div class="block-head">
+        <h2 class="block-title" id="staff-title">コーチ・スタッフ<small>COACH &amp; STAFF</small></h2>
+      </div>
+
+      <div class="staff-grid">
+
+        <!-- 代表 吉浦 宏 -->
+        <article class="staff-card">
+          <div class="staff-initial" role="img" aria-label="吉浦 宏（写真準備中）"><span>Y</span></div>
+          <div class="staff-body">
+            <span class="staff-role">代表</span>
+            <h3 class="staff-name">吉浦 宏</h3>
+          </div>
+        </article>
+
+        <!-- 監督 手塚 祐治 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/tezuka.jpg" alt="監督 手塚祐治" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">監督</span>
+            <h3 class="staff-name">手塚 祐治</h3>
+            <details>
+              <summary>経歴を見る</summary>
+              <div class="career">
+                <h3>選手歴</h3>
+                <ul>
+                  <li>ブラジル1部 プロ契約</li>
+                  <li>ituano — パウリスタ優勝・1部昇格</li>
+                  <li>ituano — 全国選手権2部</li>
+                </ul>
+                <h3>指導歴</h3>
+                <ul>
+                  <li>2007〜2010 関東第一高校（2007 関東大会準優勝、2010 インターハイベスト8・選手権都予選ベスト4 ほか）</li>
+                  <li>2011〜2019 田口フットボールアカデミーJY</li>
+                  <li>2020 城北ボレアス・アローレはちきた</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- GKコーチ 星 瑛 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/hoshi.jpg" alt="GKコーチ 星瑛" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">GKコーチ</span>
+            <h3 class="staff-name">星 瑛</h3>
+            <details>
+              <summary>経歴を見る</summary>
+              <div class="career">
+                <h3>選手歴</h3>
+                <ul>
+                  <li>横浜市立東高校（インターハイ県予選ベスト4）</li>
+                  <li>2000〜2018 FCアヴァンツァーレ赤羽</li>
+                </ul>
+                <h3>指導歴</h3>
+                <ul>
+                  <li>2013〜 都立荒川商業高校</li>
+                  <li>2012〜2019 tfaJY</li>
+                  <li>2020〜 城北ボレアス</li>
+                </ul>
+                <h3>資格</h3>
+                <ul>
+                  <li>JFA公認C級・GK C級</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- コーチ 水野 柊 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/mizuno.jpg" alt="コーチ 水野柊" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">コーチ</span>
+            <h3 class="staff-name">水野 柊</h3>
+            <div class="career">
+              <h3>選手歴</h3>
+              <ul>
+                <li>都立大山高校</li>
+              </ul>
+              <h3>指導歴</h3>
+              <ul>
+                <li>2018〜2019 tfaJY</li>
+                <li>2020〜 城北ボレアス</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- アドバイザー 小林 篤史 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/kobayashi.jpg" alt="アドバイザー 小林篤史" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">アドバイザー</span>
+            <h3 class="staff-name">小林 篤史</h3>
+            <div class="career">
+              <h3>経歴</h3>
+              <ul>
+                <li>2015〜 F.C.VELSA</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- アドバイザー 三富 貴徳 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/mitomi.jpg" alt="アドバイザー 三富貴徳" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">アドバイザー</span>
+            <h3 class="staff-name">三富 貴徳</h3>
+            <div class="career">
+              <h3>経歴</h3>
+              <ul>
+                <li>2016〜 F.C.VELSA</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- スペシャルアドバイザー 岩間 雄大 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/yudai.jpg" alt="スペシャルアドバイザー 岩間雄大" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role staff-role--special">スペシャルアドバイザー・個人スキル</span>
+            <h3 class="staff-name">岩間 雄大</h3>
+            <div class="career">
+              <h3>選手歴</h3>
+              <ul>
+                <li>アルテ高崎</li>
+                <li>V・ファーレン長崎</li>
+                <li>松本山雅FC</li>
+                <li>栃木SC</li>
+                <li>藤枝MYFC</li>
+                <li>おこしやす京都AC（現所属）</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 運営事務 鈴木 博 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/hiroshi.jpg" alt="運営事務 鈴木博" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">運営事務</span>
+            <h3 class="staff-name">鈴木 博</h3>
+            <div class="career">
+              <h3>経歴</h3>
+              <ul>
+                <li>2003-04 ドイツ OffnburgerFV</li>
+                <li>2004-05 スロバキア FC EKEL</li>
+                <li>フットサル関東2部 BFCKOWA</li>
+                <li>群馬県選抜</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- スタッフ 萩原 淳貴 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/ogiwara.jpg" alt="スタッフ 萩原淳貴" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">スタッフ</span>
+            <h3 class="staff-name">萩原 淳貴</h3>
+            <div class="career">
+              <h3>経歴</h3>
+              <ul>
+                <li>青梅FC</li>
+                <li>藤枝myfcサッカースクール</li>
+                <li>tfaJY</li>
+                <li>2023〜 ノールチシティ</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- スタッフ 石塚 隆祐 -->
+        <article class="staff-card">
+          <div class="staff-photo"><img src="assets/img/coach/ishiduka.jpg" alt="スタッフ 石塚隆祐" loading="lazy"></div>
+          <div class="staff-body">
+            <span class="staff-role">スタッフ</span>
+            <h3 class="staff-name">石塚 隆祐</h3>
+            <div class="career">
+              <h3>経歴</h3>
+              <ul>
+                <li>沖縄県ウェルネス高校</li>
+                <li>沖縄県立知念高校</li>
+                <li>2021〜 ノールチシティ</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ フッター ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <nav class="fnav-line" aria-label="フッターメニュー">
+      <a href="index.html">ホーム</a>
+      <a href="news.html">お知らせ</a>
+      <a href="team.html">チーム紹介</a>
+      <a href="staff.html">スタッフ</a>
+      <a href="schedule.html">日程・結果</a>
+      <a href="sponsors.html">スポンサー</a>
+    </nav>
+    <div class="copy-line">
+      <small>Copyright &copy; ノールチシティ All rights reserved.</small>
+      <small class="by">Sample design by ALFA FOOTBALL</small>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

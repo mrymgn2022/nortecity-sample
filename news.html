@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お知らせ｜ノールチシティ ジュニアユースサッカークラブ</title>
+<meta name="description" content="ノールチシティ ジュニアユースのお知らせ一覧。試合結果・クラブニュース・練習会/セレクション情報を掲載しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ---- ページタイトル帯 ---- */
+.page-hero{background:linear-gradient(120deg,var(--blue-dark) 0%,var(--blue) 100%);color:#fff}
+.page-hero .container{min-height:120px;display:flex;flex-direction:column;justify-content:center;gap:2px;padding-block:22px}
+.page-hero h1{margin:0;font-size:26px;font-weight:900;letter-spacing:.06em;line-height:1.3}
+.page-hero .en{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.3em;color:#FFB07A}
+.page-main{padding:44px 0 72px}
+
+/* ---- お知らせ一覧 ---- */
+.news-list{display:grid;gap:14px}
+.news-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.news-item summary{display:grid;grid-template-columns:104px auto minmax(0,1fr) 18px;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;list-style:none;transition:background .2s}
+.news-item summary::-webkit-details-marker{display:none}
+.news-item summary:hover{background:var(--bg-soft)}
+.news-item time,.news-item .no-date{font-family:var(--en);font-size:15px;letter-spacing:.04em;color:var(--mute)}
+.news-item .cat{padding:2px 10px}
+.cat--event{color:#fff;background:var(--orange-dark);border-color:var(--orange-dark)}
+.news-item .n-title{font-size:15px;font-weight:700;line-height:1.5}
+.news-item .n-chev{width:18px;height:18px;color:#A3ACBD;justify-self:end;transition:transform .25s}
+.news-item[open] .n-chev{transform:rotate(90deg)}
+.news-body{margin:0 18px;padding:14px 0 18px;border-top:1px dashed var(--line);font-size:14px;line-height:1.9;color:var(--ink)}
+.news-body p + p{margin-top:8px}
+.table-scroll{overflow-x:auto;margin-top:12px}
+.table-scroll .rank-table{min-width:480px}
+.done{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:4px;background:var(--bg-soft);border:1px solid var(--line);font-size:11px;font-weight:700;color:var(--mute);white-space:nowrap}
+.sample-note{margin-top:26px;font-size:12px;color:var(--mute)}
+@media (max-width:768px){
+  .page-hero h1{font-size:22px}
+  .page-main{padding:32px 0 56px}
+  .news-item summary{grid-template-columns:auto auto minmax(0,1fr);grid-template-areas:"date cat chev" "title title title";gap:6px 12px;padding:14px 14px}
+  .news-item time,.news-item .no-date{grid-area:date}
+  .news-item .cat{grid-area:cat;justify-self:start;padding:1px 10px}
+  .news-item .n-title{grid-area:title;font-size:14px}
+  .news-item .n-chev{grid-area:chev}
+  .news-body{margin:0 14px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">本文へスキップ</a>
+
+<!-- ============ ヘッダー ============ -->
+<header class="site-header">
+  <div class="container header-top">
+    <a class="brand" href="index.html">
+      <img src="assets/img/emblem.png" width="36" height="35" alt="">
+      <span class="brand-text">
+        <span class="brand-en">NORTECITY JUNIOR YOUTH</span>
+        <span class="brand-ja">ノールチシティ</span>
+      </span>
+    </a>
+    <div class="header-util">
+      <a class="top-link" href="https://forms.gle/h69wxchyuRCd8B8E6" target="_blank" rel="noopener">&raquo; お申込み・お問い合わせ</a>
+    </div>
+  </div>
+
+  <nav class="gnav" aria-label="メインメニュー">
+    <ul class="container">
+      <li><a href="index.html">ホーム<small>HOME</small></a></li>
+      <li><a href="news.html" aria-current="page">お知らせ<small>NEWS</small></a></li>
+      <li><a href="team.html">チーム紹介<small>TEAM</small></a></li>
+      <li><a href="staff.html">スタッフ<small>STAFF</small></a></li>
+      <li><a href="schedule.html">日程・結果<small>SCHEDULE</small></a></li>
+      <li><a href="sponsors.html">スポンサー<small>SPONSOR</small></a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 画面端の固定SNSボタン -->
+<nav class="float-sns" aria-label="公式SNS">
+  <a href="https://x.com/nortecity" target="_blank" rel="noopener" aria-label="X（旧Twitter）"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  <a href="https://www.instagram.com/nortecity_official/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a>
+  <a href="https://www.facebook.com/nortecitytokyo/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+  <a href="https://www.youtube.com/channel/UCBgRU-13rFsEU_Lkqz926OQ" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.2V8.8L15.6 12z"/></svg></a>
+</nav>
+
+<!-- ============ ページタイトル帯 ============ -->
+<div class="page-hero">
+  <div class="container">
+    <p class="en">NEWS</p>
+    <h1>お知らせ</h1>
+  </div>
+</div>
+
+<!-- ============ メイン ============ -->
+<main id="main" class="page-main">
+  <div class="container">
+
+    <section class="block" aria-labelledby="news-title">
+      <div class="block-head">
+        <h2 class="block-title" id="news-title">お知らせ一覧<small>NEWS</small></h2>
+      </div>
+
+      <div class="news-list">
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2026-07-28">2026.07.28</time>
+            <span class="cat cat--event">セレクション</span>
+            <span class="n-title">セレクションのお知らせ（2027年度・募集は終了しました）</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>2027年度（現・小学6年生／新中学1年生対象）の練習会・セレクションを下記の日程で実施しました。練習会は参加無料（1人1日のみ）、セレクションは参加費1,000円（1人1回まで）です。持ち物はサッカー用具一式（飲み物・着替え含む）。</p>
+            <div class="table-scroll">
+              <table class="rank-table">
+                <thead><tr><th scope="col">区分</th><th scope="col">日程</th><th scope="col">時間</th><th scope="col">会場</th><th scope="col">定員</th></tr></thead>
+                <tbody>
+                  <tr><td>練習会</td><td>5/18(月)</td><td>18:30-20:30</td><td>赤羽スポーツの森</td><td>80名</td></tr>
+                  <tr><td>練習会</td><td>5/21(木)</td><td>18:30-20:30</td><td>豊島北スポーツ多目的</td><td>40名</td></tr>
+                  <tr><td>練習会</td><td>5/23(土)</td><td>18:15-20:30</td><td>北運動場</td><td>40名</td></tr>
+                  <tr><td>練習会</td><td>5/26(火)</td><td>18:30-20:30</td><td>北運動場</td><td>80名</td></tr>
+                  <tr><td>練習会</td><td>6/1(月)</td><td>18:30-20:30</td><td>桐ヶ丘中学校</td><td>60名</td></tr>
+                  <tr><td>セレクション</td><td>7/13(月)</td><td>18:00-20:30</td><td>北運動場</td><td>80名<span class="done">募集終了</span></td></tr>
+                  <tr><td>最終セレクション</td><td>9/17(木)</td><td>18:30-20:15</td><td>豊島北スポーツ多目的広場</td><td>60名<span class="done">募集終了</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2026-05-04">2026.05.04</time>
+            <span class="cat cat--result">試合結果</span>
+            <span class="n-title">U15クラブユース選手権 関東大会出場決定</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>U15クラブユース選手権 代表決定戦（2026年5月4日・駒沢補助競技場）でFC GONAと対戦し、3-0で勝利。関東大会への出場が決定しました。応援ありがとうございました。</p>
+          </div>
+        </details>
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2022-10-23">2022.10.23</time>
+            <span class="cat cat--result">試合結果</span>
+            <span class="n-title">U14選手権 2次リーグ6戦目 — 6連勝で3次リーグ進出決定</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>U14選手権2次リーグの6戦目、ヴェルメリオと対戦し6-0で勝利しました。これで2次リーグ6連勝となり、3次リーグへの進出が決定しました。応援ありがとうございました。</p>
+          </div>
+        </details>
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2022-08-17">2022.08.17</time>
+            <span class="cat cat--result">試合結果</span>
+            <span class="n-title">U14 東春カップ 優勝</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>U14東春カップで優勝しました。決勝は高崎FCと対戦し、1-0で勝利。応援いただいた皆さま、ありがとうございました。</p>
+          </div>
+        </details>
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2022-08-07">2022.08.07</time>
+            <span class="cat cat--result">試合結果</span>
+            <span class="n-title">U14選手権 2次リーグ 初戦</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>U14選手権2次リーグの初戦、JOGARと対戦し22-0で勝利しました。良いスタートを切ることができました。</p>
+          </div>
+        </details>
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2022-07-03">2022.07.03</time>
+            <span class="cat cat--result">試合結果</span>
+            <span class="n-title">U14クラブユース 1次リーグ 初戦</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>U14クラブユース1次リーグの初戦、VEDIALOと対戦し7-0で勝利しました。次戦も勝利を目指して戦います。</p>
+          </div>
+        </details>
+
+        <details class="news-item">
+          <summary>
+            <time datetime="2022-06-17">2022.06.17</time>
+            <span class="cat cat--news">ニュース</span>
+            <span class="n-title">練習会の開催・チームバス2号車導入・城北ボレアスFCとの合同練習</span>
+            <svg class="n-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </summary>
+          <div class="news-body">
+            <p>6月13日に練習会を開催しました。ご参加いただいた皆さま、ありがとうございました。</p>
+            <p>また、6月14日にはチームバス2号車を導入しました。試合・遠征はバスで移動します。業務提携チームの城北ボレアスFCとの合同練習も実施しています。</p>
+          </div>
+        </details>
+
+      </div>
+
+      <p class="sample-note">※ サンプル表示：旧公式ブログ（2022年）の記事をもとに掲載しています。</p>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ フッター ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <nav class="fnav-line" aria-label="フッターメニュー">
+      <a href="index.html">ホーム</a>
+      <a href="news.html">お知らせ</a>
+      <a href="team.html">チーム紹介</a>
+      <a href="staff.html">スタッフ</a>
+      <a href="schedule.html">日程・結果</a>
+      <a href="sponsors.html">スポンサー</a>
+    </nav>
+    <div class="copy-line">
+      <small>Copyright &copy; ノールチシティ All rights reserved.</small>
+      <small class="by">Sample design by ALFA FOOTBALL</small>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
