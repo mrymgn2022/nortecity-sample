@@ -221,9 +221,7 @@
     });
     var header = document.querySelector('.site-header');
     if (!on.length || !header) return;
-    var wrap = document.createElement('div');
-    wrap.className = 'site-alerts';
-    wrap.innerHTML = on.map(function (o) {
+    var html = on.map(function (o) {
       var kind = o['種類'] || 'お知らせ';
       // 中止＝赤、変更・延期＝オレンジ、それ以外＝紺
       var cls = /中止/.test(kind) ? 'site-alert--warn'
@@ -236,7 +234,22 @@
         (link && safe ? '<a class="sa-link" href="' + esc(link) + '">詳しく見る</a>' : '') +
         '</div></div>';
     }).join('');
-    header.parentNode.insertBefore(wrap, header.nextSibling);
+
+    // ① ヘッダーのすぐ下（全ページ）
+    var top = document.createElement('div');
+    top.className = 'site-alerts';
+    top.innerHTML = html;
+    header.parentNode.insertBefore(top, header.nextSibling);
+
+    // ② 試合日程・結果の見出しの上（ホーム／日程・結果ページ）
+    var schedTitle = document.getElementById('sched-title');
+    var block = document.getElementById('match') || (schedTitle && schedTitle.closest('.block'));
+    if (block) {
+      var inline = document.createElement('div');
+      inline.className = 'site-alerts site-alerts--inline';
+      inline.innerHTML = html;
+      block.insertBefore(inline, block.firstChild);
+    }
   }
 
   /* ---------- 実行 ---------- */

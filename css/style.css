@@ -238,6 +238,11 @@ html.drawer-open{overflow:hidden}
 .site-alert--info .sa-tag{color:var(--blue-dark)}
 .sa-text{font-size:14px;font-weight:700;line-height:1.6}
 .sa-link{margin-left:auto;font-size:13px;font-weight:700;text-decoration:underline;white-space:nowrap}
+/* 本文中（試合日程・結果の上）に出すとき */
+.site-alerts--inline{margin-bottom:18px}
+.site-alerts--inline .site-alert{border-radius:8px}
+.site-alerts--inline .site-alert + .site-alert{margin-top:8px;border-top:0}
+.site-alerts--inline .container{max-width:none;padding-inline:16px}
 
 /* お知らせ */
 .news{border-top:1px solid var(--line)}
