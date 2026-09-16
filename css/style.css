@@ -230,6 +230,7 @@ html.drawer-open{overflow:hidden}
 /* 緊急告知の帯（スプレッドシートで表示ON） */
 .site-alert{color:#fff}
 .site-alert--warn{background:#C62828}
+.site-alert--change{background:var(--orange-dark)}
 .site-alert--info{background:var(--blue-dark)}
 .site-alert + .site-alert{border-top:1px solid rgba(255,255,255,.2)}
 .site-alert .container{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;padding-block:10px}

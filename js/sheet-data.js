@@ -225,10 +225,13 @@
     wrap.className = 'site-alerts';
     wrap.innerHTML = on.map(function (o) {
       var kind = o['種類'] || 'お知らせ';
-      var warn = /中止|変更|延期|重要|緊急/.test(kind);
+      // 中止＝赤、変更・延期＝オレンジ、それ以外＝紺
+      var cls = /中止/.test(kind) ? 'site-alert--warn'
+        : /変更|延期/.test(kind) ? 'site-alert--change'
+        : 'site-alert--info';
       var link = o['リンク'] || '';
       var safe = /^(https?:\/\/|[a-z0-9\-]+\.html)/i.test(link);
-      return '<div class="site-alert ' + (warn ? 'site-alert--warn' : 'site-alert--info') + '" role="alert"><div class="container">' +
+      return '<div class="site-alert ' + cls + '" role="alert"><div class="container">' +
         '<span class="sa-tag">' + esc(kind) + '</span><p class="sa-text">' + esc(o['文言']) + '</p>' +
         (link && safe ? '<a class="sa-link" href="' + esc(link) + '">詳しく見る</a>' : '') +
         '</div></div>';
