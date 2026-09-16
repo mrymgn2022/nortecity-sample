@@ -220,7 +220,10 @@
       return (o['文言'] || '') !== '';
     });
     var header = document.querySelector('.site-header');
-    if (!on.length || !header) return;
+    // 表示するのはホームと日程・結果ページだけ
+    var schedTitle = document.getElementById('sched-title');
+    var block = document.getElementById('match') || (schedTitle && schedTitle.closest('.block'));
+    if (!on.length || !header || !block) return;
     var html = on.map(function (o) {
       var kind = o['種類'] || 'お知らせ';
       // 中止＝赤、変更・延期＝オレンジ、それ以外＝紺
