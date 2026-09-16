@@ -220,10 +220,12 @@
       return (o['文言'] || '') !== '';
     });
     var header = document.querySelector('.site-header');
-    // 表示するのはホームと日程・結果ページだけ
-    var schedTitle = document.getElementById('sched-title');
-    var block = document.getElementById('match') || (schedTitle && schedTitle.closest('.block'));
-    if (!on.length || !header || !block) return;
+    // 表示するのはホーム・日程結果・お知らせの3ページだけ
+    var isHome = !!document.getElementById('match');
+    var isSchedule = !!document.getElementById('sched-title');
+    var newsTitle = document.getElementById('news-title');
+    var isNewsPage = !!newsTitle && !isHome;
+    if (!on.length || !header || !(isHome || isSchedule || isNewsPage)) return;
     var html = on.map(function (o) {
       var kind = o['種類'] || 'お知らせ';
       // 中止＝赤、変更・延期＝オレンジ、それ以外＝紺
@@ -238,20 +240,21 @@
         '</div></div>';
     }).join('');
 
-    // ① ヘッダーのすぐ下（全ページ）
+    // ① メニューのすぐ下
     var top = document.createElement('div');
     top.className = 'site-alerts';
     top.innerHTML = html;
     header.parentNode.insertBefore(top, header.nextSibling);
 
-    // ② 試合日程・結果の見出しの上（ホーム／日程・結果ページ）
-    var schedTitle = document.getElementById('sched-title');
-    var block = document.getElementById('match') || (schedTitle && schedTitle.closest('.block'));
-    if (block) {
-      var inline = document.createElement('div');
-      inline.className = 'site-alerts site-alerts--inline';
-      inline.innerHTML = html;
-      block.insertBefore(inline, block.firstChild);
+    // ② ホームは「お知らせ」欄の一番上にも
+    if (isHome && newsTitle) {
+      var block = newsTitle.closest('.block');
+      if (block) {
+        var inline = document.createElement('div');
+        inline.className = 'site-alerts site-alerts--inline';
+        inline.innerHTML = html;
+        block.insertBefore(inline, block.firstChild);
+      }
     }
   }
 
