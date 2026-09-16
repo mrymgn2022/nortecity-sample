@@ -33,13 +33,17 @@
 .career ul{padding:0}
 .career li{position:relative;padding:2px 0 2px 14px;font-size:12.5px;line-height:1.7;color:var(--ink)}
 .career li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--blue)}
-.staff-card details{margin-top:auto}
-.staff-card details summary{display:inline-flex;align-items:center;gap:6px;padding:6px 0 0;font-size:13px;font-weight:700;color:var(--blue);cursor:pointer;list-style:none}
-.staff-card details summary::-webkit-details-marker{display:none}
-.staff-card details summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
-.staff-card details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
-@media (hover:hover){.staff-card details summary:hover{color:var(--orange-dark)}}
-.staff-card details .career{padding-top:6px}
+/* ---- 経歴（長い人は途中まで表示 → もっと見るで展開） ---- */
+.career-wrap{--career-max:170px;margin-top:2px}
+.career-wrap.is-clamped .career{position:relative;max-height:var(--career-max);overflow:hidden;transition:max-height .35s ease}
+.career-wrap.is-clamped .career::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#fff 80%);pointer-events:none}
+.career-wrap.is-clamped.is-open .career{max-height:1200px}
+.career-wrap.is-clamped.is-open .career::after{content:none}
+.career-more{display:none;align-items:center;gap:6px;margin-top:4px;padding:6px 0 0;border:0;background:none;font:inherit;font-size:13px;font-weight:700;color:var(--blue);cursor:pointer}
+.career-wrap.is-clamped .career-more{display:inline-flex}
+.career-more::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.career-wrap.is-clamped.is-open .career-more::after{transform:rotate(-135deg) translateY(-2px)}
+@media (hover:hover){.career-more:hover{color:var(--orange-dark)}}
 .staff-note{margin-top:22px;font-size:12px;color:var(--mute)}
 @media (max-width:768px){
   .page-hero h1{font-size:22px}
@@ -47,6 +51,7 @@
   .staff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .staff-body{padding:12px 12px 14px}
   .staff-name{font-size:16px}
+  .career-wrap{--career-max:150px}
 }
 </style>
 </head>
@@ -125,8 +130,7 @@
           <div class="staff-body">
             <span class="staff-role">監督</span>
             <h3 class="staff-name">手塚 祐治</h3>
-            <details>
-              <summary>経歴を見る</summary>
+            <div class="career-wrap">
               <div class="career">
                 <h3>選手歴</h3>
                 <ul>
@@ -141,7 +145,8 @@
                   <li>2020 城北ボレアス・アローレはちきた</li>
                 </ul>
               </div>
-            </details>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
+            </div>
           </div>
         </article>
 
@@ -151,8 +156,7 @@
           <div class="staff-body">
             <span class="staff-role">GKコーチ</span>
             <h3 class="staff-name">星 瑛</h3>
-            <details>
-              <summary>経歴を見る</summary>
+            <div class="career-wrap">
               <div class="career">
                 <h3>選手歴</h3>
                 <ul>
@@ -170,7 +174,8 @@
                   <li>JFA公認C級・GK C級</li>
                 </ul>
               </div>
-            </details>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
+            </div>
           </div>
         </article>
 
@@ -180,7 +185,8 @@
           <div class="staff-body">
             <span class="staff-role">コーチ</span>
             <h3 class="staff-name">水野 柊</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>選手歴</h3>
               <ul>
                 <li>都立大山高校</li>
@@ -190,6 +196,8 @@
                 <li>2018〜2019 tfaJY</li>
                 <li>2020〜 城北ボレアス</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -200,11 +208,14 @@
           <div class="staff-body">
             <span class="staff-role">アドバイザー</span>
             <h3 class="staff-name">小林 篤史</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>経歴</h3>
               <ul>
                 <li>2015〜 F.C.VELSA</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -215,11 +226,14 @@
           <div class="staff-body">
             <span class="staff-role">アドバイザー</span>
             <h3 class="staff-name">三富 貴徳</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>経歴</h3>
               <ul>
                 <li>2016〜 F.C.VELSA</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -230,7 +244,8 @@
           <div class="staff-body">
             <span class="staff-role staff-role--special">スペシャルアドバイザー・個人スキル</span>
             <h3 class="staff-name">岩間 雄大</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>選手歴</h3>
               <ul>
                 <li>アルテ高崎</li>
@@ -240,6 +255,8 @@
                 <li>藤枝MYFC</li>
                 <li>おこしやす京都AC（現所属）</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -250,7 +267,8 @@
           <div class="staff-body">
             <span class="staff-role">運営事務</span>
             <h3 class="staff-name">鈴木 博</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>経歴</h3>
               <ul>
                 <li>2003-04 ドイツ OffnburgerFV</li>
@@ -258,6 +276,8 @@
                 <li>フットサル関東2部 BFCKOWA</li>
                 <li>群馬県選抜</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -268,7 +288,8 @@
           <div class="staff-body">
             <span class="staff-role">スタッフ</span>
             <h3 class="staff-name">萩原 淳貴</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>経歴</h3>
               <ul>
                 <li>青梅FC</li>
@@ -276,6 +297,8 @@
                 <li>tfaJY</li>
                 <li>2023〜 ノールチシティ</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -286,13 +309,16 @@
           <div class="staff-body">
             <span class="staff-role">スタッフ</span>
             <h3 class="staff-name">石塚 隆祐</h3>
-            <div class="career">
+            <div class="career-wrap">
+              <div class="career">
               <h3>経歴</h3>
               <ul>
                 <li>沖縄県ウェルネス高校</li>
                 <li>沖縄県立知念高校</li>
                 <li>2021〜 ノールチシティ</li>
               </ul>
+              </div>
+              <button class="career-more" type="button" aria-expanded="false">もっと見る</button>
             </div>
           </div>
         </article>
@@ -321,6 +347,41 @@
     </div>
   </div>
 </footer>
+<script>
+/* 経歴：収まらない人だけ途中で切り、「もっと見る」で全文を展開する */
+(function () {
+  var wraps = [].slice.call(document.querySelectorAll('.career-wrap'));
+  if (!wraps.length) return;
+
+  wraps.forEach(function (wrap) {
+    var btn = wrap.querySelector('.career-more');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var open = wrap.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.firstChild.nodeValue = open ? '閉じる' : 'もっと見る';
+    });
+  });
+
+  function measure() {
+    wraps.forEach(function (wrap) {
+      var career = wrap.querySelector('.career');
+      if (!career || wrap.classList.contains('is-open')) return;
+      var max = parseInt(getComputedStyle(wrap).getPropertyValue('--career-max'), 10) || 170;
+      wrap.classList.remove('is-clamped');
+      if (career.scrollHeight > max + 20) wrap.classList.add('is-clamped');
+    });
+  }
+
+  measure();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  var timer;
+  window.addEventListener('resize', function () {
+    clearTimeout(timer);
+    timer = setTimeout(measure, 200);
+  });
+})();
+</script>
 
 <script src="js/sheet-config.js"></script>
 <script src="js/sheet-data.js"></script>
