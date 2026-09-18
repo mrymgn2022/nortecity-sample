@@ -95,7 +95,7 @@
           <img src="images/slide-sekai.jpg" alt="norte city FOOTBALL CLUB 世界を越える選手になれ!!" width="1600" height="900">
         </a>
 
-        <a class="hs-slide" href="news.html">
+        <a class="hs-slide" href="news-post.html?id=selection-2027">
           <div class="ph ph--orange" data-bg="SELECTION">
             <span class="ph-label ph-label--blue">NEWS</span>
             <p class="ph-title">2027年度<br>最終セレクション</p>
@@ -103,7 +103,7 @@
           </div>
         </a>
 
-        <a class="hs-slide" href="news.html">
+        <a class="hs-slide" href="news-post.html?id=practice-2027">
           <div class="ph ph--sky" data-bg="PRACTICE">
             <span class="ph-label">PRACTICE SESSION</span>
             <p class="ph-title">練習会・セレクション</p>
@@ -202,16 +202,16 @@
           <h2 class="block-title" id="news-title">お知らせ<small>NEWS</small></h2>
           <a class="more" href="news.html">一覧へ<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10.5 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="stroke:#fff"/></svg></a>
         </div>
-        <ul class="news">
-          <li><a href="news.html">
+        <ul class="news" data-news-latest="3">
+          <li><a href="news-post.html?id=selection-2027">
             <time datetime="2026-07-28">2026年7月28日</time><span class="cat cat--news">セレクション</span>
             <span class="news-title">セレクションのお知らせ（2027年度・募集は終了しました）</span>
             <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></li>
-          <li><a href="news.html">
+          <li><a href="news-post.html?id=practice-2027">
             <time datetime="2026-06-01">2026年6月1日</time><span class="cat cat--news">練習会</span>
             <span class="news-title">練習会のお知らせ（2027年度・全日程終了）</span>
             <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></li>
-          <li><a href="news.html">
+          <li><a href="news-post.html?id=kanto-2026">
             <time datetime="2026-05-04">2026年5月4日</time><span class="cat cat--result">試合結果</span>
             <span class="news-title">U15クラブユース選手権 関東大会出場決定（代表決定戦 vs FC GONA ○3-0）</span>
             <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></li>
@@ -298,6 +298,8 @@
   </div>
 </footer>
 
+<script src="js/news-data.js"></script>
+<script src="js/news.js"></script>
 <script src="js/sheet-config.js"></script>
 <script src="js/sheet-data.js"></script>
 <script src="js/main.js"></script>

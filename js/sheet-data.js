@@ -211,11 +211,21 @@
     if (!m) return null;
     return new Date(+m[1], +m[2] - 1, +m[3], m[4] !== undefined ? +m[4] : 23, m[5] !== undefined ? +m[5] : 59);
   }
+  // 「表示終了」: 今日いっぱい／明日いっぱい は、✓を入れた日（ON日時）の 23:59 ／ 翌日 23:59 まで。
+  // 空欄は✓を外すまで表示。以前の書き方（2026/09/20 21:00 など）もそのまま使える。
+  function alertEnd(o) {
+    var v = (o['表示終了'] || '').trim();
+    var plus = /^今日/.test(v) ? 0 : /^明日/.test(v) ? 1 : -1;
+    if (plus < 0) return parseEnd(v);
+    var on = parseEnd(o['ON日時']);
+    if (!on) return null; // ON日時が無ければ手動扱い（勝手に消えない）
+    return new Date(on.getFullYear(), on.getMonth(), on.getDate() + plus, 23, 59, 59);
+  }
   function renderAlerts(rows) {
     var now = new Date();
     var on = rows.filter(function (o) {
       if (!/^(TRUE|ON|1|○|表示|はい)$/i.test((o['表示'] || '').trim())) return false;
-      var end = parseEnd(o['表示終了']);
+      var end = alertEnd(o);
       if (end && end < now) return false;
       return (o['文言'] || '') !== '';
     });
