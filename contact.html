@@ -37,9 +37,10 @@
 .ct-card--form .ct-ico{background:rgba(255,255,255,.2);color:#fff}
 .ct-card--form .ct-lbl,.ct-card--form .ct-val,.ct-card--form .ct-act{color:#fff}
 .ct-card--form .ct-val{font-size:16px}
-.ct-notes{margin-top:18px;padding:14px 18px;border-radius:8px;background:var(--bg-soft);font-size:13px;line-height:1.9;color:var(--mute)}
-.ct-notes li{position:relative;padding-left:1.2em}
-.ct-notes li::before{content:"※";position:absolute;left:0}
+.ct-resend{display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;align-items:start;margin-top:18px;padding:16px 20px;border:1px solid #F5C9A8;border-radius:var(--radius);background:var(--orange-soft);font-size:14px;line-height:1.9}
+.ct-resend-ico{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--orange-dark);color:#fff;font-family:var(--en);font-size:18px;font-weight:700}
+.ct-resend-head{margin-bottom:2px;font-size:15px;font-weight:900;color:var(--orange-dark)}
+.ct-resend b{color:var(--ink)}
 
 @media (max-width:768px){
   .page-hero h1{font-size:22px}
@@ -70,7 +71,7 @@
       </span>
     </a>
     <div class="header-util">
-      <a class="top-link" href="https://forms.gle/h69wxchyuRCd8B8E6" target="_blank" rel="noopener">&raquo; お申込み・お問い合わせ</a>
+      <a class="top-link" href="contact.html">&raquo; お申込み・お問い合わせ</a>
       <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -121,17 +122,17 @@
       </div>
 
       <div class="ct-grid">
-        <a class="ct-card" href="tel:08031563235">
-          <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
-          <span class="ct-lbl">お電話</span>
-          <span class="ct-val">080-3156-3235</span>
-          <span class="ct-act">タップして電話する &rarr;</span>
-        </a>
         <a class="ct-card" href="mailto:nortecity20@yahoo.co.jp">
           <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
           <span class="ct-lbl">メール</span>
           <span class="ct-val">nortecity20@yahoo.co.jp</span>
           <span class="ct-act">メールを作成する &rarr;</span>
+        </a>
+        <a class="ct-card" href="tel:08031563235">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span>
+          <span class="ct-lbl">お電話</span>
+          <span class="ct-val">080-3156-3235</span>
+          <span class="ct-act">タップして電話する &rarr;</span>
         </a>
         <a class="ct-card ct-card--form" href="https://forms.gle/h69wxchyuRCd8B8E6" target="_blank" rel="noopener">
           <span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
@@ -141,10 +142,13 @@
         </a>
       </div>
 
-      <ul class="ct-notes">
-        <li>お問い合わせいただいた方には、必ず全員にご返信いたします。</li>
-        <li>パソコンからのメールが届かない場合がありますので、2〜3日経っても返信がない場合はお電話でご確認ください。</li>
-      </ul>
+      <div class="ct-resend">
+        <span class="ct-resend-ico" aria-hidden="true">!</span>
+        <div>
+          <p class="ct-resend-head">2〜3日経っても返信がない場合は、もう一度ご連絡ください</p>
+          <p>お問い合わせいただいた方には、必ず全員にご返信しています。メールが迷惑メールフォルダに入っていたり、届いていなかったりすることがありますので、2〜3日経っても返信がない場合は、お手数ですが<b>同じ内容をもう一度メールでお送りください</b>。</p>
+        </div>
+      </div>
     </section>
   </div>
 </main>
