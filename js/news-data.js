@@ -54,12 +54,12 @@ window.NEWS_POSTS = [
     date: '2026-05-30',
     type: 'result',
     cat: '試合結果',
-    title: 'U15クラブユース選手権 関東大会 1回戦（vs STFC ●1-3）',
+    title: 'U15クラブユース選手権 関東大会 1回戦（vs S.T.FC ●1-3）',
     body:
-      '<p>U15クラブユース選手権 関東大会の1回戦（2026年5月30日 10:00・清瀬内山運動公園A面）でSTFCと対戦し、1-3で敗れました。応援ありがとうございました。</p>' +
+      '<p>U15クラブユース選手権 関東大会の1回戦（2026年5月30日 10:00・清瀬内山運動公園A面）でS.T.FCと対戦し、1-3で敗れました。応援ありがとうございました。</p>' +
       '<div class="table-scroll"><table class="rank-table">' +
         '<thead><tr><th scope="col">日付</th><th scope="col">時間</th><th scope="col">会場</th><th scope="col">対戦相手</th><th scope="col">結果</th></tr></thead>' +
-        '<tbody><tr><td>5/30(土)</td><td>10:00</td><td>清瀬内山運動公園A面</td><td>STFC</td><td>●1-3</td></tr></tbody>' +
+        '<tbody><tr><td>5/30(土)</td><td>10:00</td><td>清瀬内山運動公園A面</td><td>S.T.FC</td><td>●1-3</td></tr></tbody>' +
       '</table></div>'
   },
   {
