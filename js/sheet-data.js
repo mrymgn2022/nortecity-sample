@@ -268,8 +268,46 @@
     }
   }
 
+  /* ---------- お知らせ（スプレッドシート［お知らせ］） ---------- */
+  // 列: タイムスタンプ / 種類 / タイトル / 本文 / リンク / 掲載日 / 公開
+  // 「公開」にチェックが入った行だけを、サイト側の news-data.js の分と合わせて表示する
+  var NEWS_TYPE = { '試合結果': 'result', 'ニュース': 'news', 'お知らせ': 'news', '練習会': 'event', 'セレクション': 'event' };
+  function hash(s) {
+    var h = 0;
+    for (var i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) | 0; }
+    return (h >>> 0).toString(36);
+  }
+  function autolink(escaped) {
+    return escaped.replace(/(https?:\/\/[^\s<]+)/g, function (u) {
+      return '<a href="' + u + '" target="_blank" rel="noopener">' + u + '</a>';
+    });
+  }
+  function bodyHtml(text) {
+    return String(text).replace(/\r/g, '').trim().split(/\n\s*\n/).map(function (para) {
+      return '<p>' + autolink(esc(para.trim())).replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+  }
+  function sheetNews(rows) {
+    return rows.filter(function (o) {
+      return /^(TRUE|ON|1|○|表示|はい)$/i.test((o['公開'] || '').trim()) && (o['タイトル'] || '') !== '' && (o['本文'] || '') !== '';
+    }).map(function (o) {
+      var date = normDate(o['掲載日']) || normDate(o['タイムスタンプ']) || TODAY;
+      var kind = (o['種類'] || 'お知らせ').trim();
+      var link = (o['リンク'] || '').trim();
+      var body = bodyHtml(o['本文']);
+      if (/^https?:\/\//i.test(link)) {
+        body += '<p><a href="' + esc(link) + '" target="_blank" rel="noopener">詳しくはこちら →</a></p>';
+      }
+      return {
+        id: 's-' + hash((o['タイムスタンプ'] || date) + '|' + o['タイトル']),
+        date: date, type: NEWS_TYPE[kind] || 'news', cat: kind,
+        title: o['タイトル'].trim(), body: body
+      };
+    });
+  }
+
   /* ---------- 実行 ---------- */
-  Promise.all([load(cfg.matches), load(cfg.ranking), load(cfg.alerts)]).then(function (res) {
+  Promise.all([load(cfg.matches), load(cfg.ranking), load(cfg.alerts), load(cfg.news)]).then(function (res) {
     if (res[0]) {
       var matches = res[0].map(normMatch).filter(function (m) { return m.comp && m.opp; });
       renderHome(matches);
@@ -278,5 +316,6 @@
     }
     if (res[1]) renderRanking(res[1]);
     if (res[2]) renderAlerts(res[2]);
+    if (res[3] && window.NORTE_NEWS) window.NORTE_NEWS.addSheetPosts(sheetNews(res[3]));
   });
 })();
