@@ -268,6 +268,8 @@ html.drawer-open{overflow:hidden}
 .ph--small .ph-note{top:10px;right:10px;font-size:10px}
 
 /* YouTube埋め込み */
+.fb-body{display:flex;justify-content:center;padding:14px 14px 4px;background:#fff}
+.fb-frame{display:block;max-width:100%}
 .yt-list{display:grid;gap:12px;padding:14px 14px 4px}
 .yt-frame{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000}
 .yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
