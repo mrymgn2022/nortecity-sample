@@ -41,6 +41,12 @@
 .want-box li::before{content:"";position:absolute;left:2px;top:14px;width:16px;height:16px;border-radius:50%;background:var(--orange)}
 .want-box li::after{content:"";position:absolute;left:6.5px;top:17.5px;width:7px;height:4.5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
 
+/* ---- 業務提携チーム 城北ボレアスFC ---- */
+.boreas-box{padding:22px 24px;border:1px solid var(--line);border-left:6px solid var(--orange);border-radius:var(--radius);background:#fff}
+.boreas-box p{margin:0;font-size:15px;line-height:2}
+.boreas-box p + p{margin-top:10px}
+.boreas-link a{font-size:14px;font-weight:700;color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
 /* ---- 練習環境 ---- */
 .env-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .env-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
@@ -135,10 +141,10 @@
     <ul class="container">
       <li><a href="index.html">ホーム<small>HOME</small></a></li>
       <li><a href="news.html">お知らせ<small>NEWS</small></a></li>
+      <li><a href="recruit.html">練習会・セレクション<small>TRYOUT</small></a></li>
       <li><a href="team.html" aria-current="page">チーム紹介<small>TEAM</small></a></li>
       <li><a href="staff.html">スタッフ<small>STAFF</small></a></li>
       <li><a href="schedule.html">日程・結果<small>SCHEDULE</small></a></li>
-      <li><a href="blog.html">ブログ<small>BLOG</small></a></li>
       <li><a href="sponsors.html">スポンサー<small>SPONSOR</small></a></li>
     </ul>
   </nav>
@@ -228,6 +234,18 @@
           <li>東京No.1を目標に掲げ、本気でサッカーに取り組み、夢が描け、ポゼッションサッカーをベースに魅了するサッカーがしたい人</li>
           <li>テクニック・ドリブル・賢さ・判断の速さ・走る速さ・キック精度・強さ・誰にも負けたくない気持ち・努力できる……など、何か一つ以上自信のある選手</li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ④-2 業務提携チーム 城北ボレアスFC -->
+    <section class="block" aria-labelledby="boreas-title">
+      <div class="block-head">
+        <h2 class="block-title" id="boreas-title">業務提携チーム 城北ボレアスFC<small>ALLIANCE</small></h2>
+      </div>
+      <div class="boreas-box">
+        <p>ノールチシティは、城北ボレアスFCと業務提携を結び、密接に連携しながら活動しています。サッカー戦術の共有、練習試合での強化、組織運営の多面的な協力に加え、合同練習も行っています。</p>
+        <p>監督の手塚をはじめ、GKコーチの星、コーチの水野も城北ボレアスFCで指導にあたっており、両チームで同じ考え方のもと選手の育成に取り組んでいます。</p>
+        <p class="boreas-link"><a href="https://johokuboreasfc.jimdofree.com/" target="_blank" rel="noopener">城北ボレアスFC 公式サイト →</a></p>
       </div>
     </section>
 
@@ -380,10 +398,10 @@
     <nav class="fnav-line" aria-label="フッターメニュー">
       <a href="index.html">ホーム</a>
       <a href="news.html">お知らせ</a>
+      <a href="recruit.html">練習会・セレクション</a>
       <a href="team.html">チーム紹介</a>
       <a href="staff.html">スタッフ</a>
       <a href="schedule.html">日程・結果</a>
-      <a href="blog.html">ブログ</a>
       <a href="sponsors.html">スポンサー</a>
     </nav>
     <div class="copy-line">
